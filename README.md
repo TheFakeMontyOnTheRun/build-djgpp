@@ -16,12 +16,13 @@ Before running this script, you need to install these programs first :
 * bison
 * flex
 * make (or gmake for FreeBSD)
-* makeinfo
-* patch
+* makeinfo (texinfo on OSX)
+* patch (gnupatch on OSX)
 * zlib header/library
 * curl (for Cygwin/OSX/Linux/FreeBSD)
-* wget (for MinGW)
+* wget (for MinGW and OSX)
 * bash (for FreeBSD)
+* lzip (for OSX)
 
 Depending on your system, installation procedure maybe different.
 
