@@ -13,7 +13,7 @@ ENABLE_LANGUAGES=${ENABLE_LANGUAGES-c,c++}
 DJGPP_DOWNLOAD_BASE="http://www.mirrorservice.org/sites/ftp.delorie.com/pub"
 
 # source tarball versions
-BINUTILS_VERSION=232
+BINUTILS_VERSION=234
 DJCRX_VERSION=205
 DJLSR_VERSION=205
 DJDEV_VERSION=205
@@ -275,7 +275,10 @@ echo "Building gmp"
 cd $BUILDDIR/gmp-*/
 # On some systems, building gmp will fail if CFLAGS is set.
 # Unset CFLAGS during building gmp.
-env -u CFLAGS ./configure --enable-fat --prefix=$BUILDDIR/tmpinst --enable-static --disable-shared || exit 1
+unset CFLAGS
+./configure --enable-fat --prefix=$BUILDDIR/tmpinst --enable-static --disable-shared || exit 1
+set CFLAGS
+
 ${MAKE} all || exit 1
 if [ ! -z $MAKE_CHECK ]; then
   echo "Run ${MAKE} check"
